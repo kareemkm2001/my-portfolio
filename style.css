@@ -13,13 +13,35 @@ body {
 }
 /* Hero section background image */
 .hero {
+  position: relative;
   height: 100vh;
-  background-image: url("../images/home-bg.jpg");
-  background-repeat: no-repeat;
-  background-position: 60% 0%;
+  background-image: url('images/homeBg.png');
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
 }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4); /* ← 0.4 = درجة السواد */
+  z-index: 1;
+}
+/* خلي المحتوى فوق الـ overlay */
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+.card-icon {
+  width: 100px;   
+  height: 100px;    
+  object-fit: contain; 
+  margin-bottom: 10px; /* مسافة تحت الصورة قبل العنوان */
+}
+
+
 #skills i {
   height: 100px;
   width: 100px;
