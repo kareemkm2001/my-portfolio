@@ -15,7 +15,7 @@ body {
 .hero {
   position: relative;
   height: 100vh;
-  background-image: url('images/homeBg.png');
+  background-image: url('images/HomeBg.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
