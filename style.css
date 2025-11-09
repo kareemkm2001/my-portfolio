@@ -24,10 +24,10 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4); /* ← 0.4 = درجة السواد */
+  background: rgba(0,0,0,0.4);
   z-index: 1;
 }
-/* خلي المحتوى فوق الـ overlay */
+
 .hero > * {
   position: relative;
   z-index: 2;
@@ -38,7 +38,7 @@ body {
   width: 100px;   
   height: 100px;    
   object-fit: contain; 
-  margin-bottom: 10px; /* مسافة تحت الصورة قبل العنوان */
+  margin-bottom: 10px; 
 }
 
 
@@ -50,12 +50,17 @@ body {
   height: 300px;
   object-fit: cover;
 }
+
+.card-wrapper {
+  margin-bottom: 30px; 
+}
+
 #about .img,
 #about img,
 .hire-text h2 {
   position: relative;
 }
-/* Timeline background line */
+
 #about .img::before {
   content: "";
   left: 50%;
