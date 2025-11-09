@@ -69,10 +69,19 @@ body {
   height: calc(100% + 140px);
   background: var(--gray-color);
 }
+
+
+
 #about img,
 #about .hire-text h2 {
-  width: 140px;
+  width: 140px; 
+  height: 140px;   
+  border-radius: 50%;
+  object-fit: cover; 
+  display: block;
+  margin: 0 auto; 
 }
+
 #about .hire-text h2 {
   height: 140px;
 }
