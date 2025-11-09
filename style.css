@@ -107,6 +107,14 @@ footer .social-icons a {
   #skills .card {
     width: calc(100% / 2 - 10px) !important;
   }
+
+  .hover-text {
+    opacity: 1;
+    position: relative;
+    background: transparent;
+    height: auto;
+    padding: 10px 0;
+  }
 }
 @media screen and (max-width: 668px) {
   #skills .card,
@@ -140,4 +148,17 @@ footer .social-icons a {
   color: white;
   text-decoration: none;
   font-size: 16px;
+}
+.card-wrapper {
+  position: relative;
+}
+
+.hover-text {
+  background: rgba(0, 0, 0, 0.6); /* خلفية نصف شفافة */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-wrapper:hover .hover-text {
+  opacity: 1;
 }
