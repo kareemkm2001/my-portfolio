@@ -103,10 +103,18 @@ footer .social-icons a {
   background-position: center;
   background-image: url("../images/contact-bg.jpeg");
 }
+
+@media screen and (min-width: 991px) {
+  .card-wrapper:hover .hover-text {
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 990px) {
   #skills .card {
     width: calc(100% / 2 - 10px) !important;
   }
+
 
   .hover-text {
     opacity: 1;
@@ -159,6 +167,4 @@ footer .social-icons a {
   transition: opacity 0.3s ease;
 }
 
-.card-wrapper:hover .hover-text {
-  opacity: 1;
-}
+
