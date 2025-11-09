@@ -152,6 +152,10 @@ footer .social-icons a {
     height: auto;
     padding: 10px 0;
   }
+
+  .card-wrapper:hover .hover-text {
+    opacity: 1;
+  }
 }
 
 /* Full width for small mobile */
