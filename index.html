@@ -3,385 +3,374 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Kareem</title>
-    <!-- Linking CSS File -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- Fontawesome link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!-- Bootstrap link -->
+    <title>Portfolio | Kareem Mustafa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      (function() {
+        var t = localStorage.getItem('portfolio-theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');
+        else document.documentElement.setAttribute('data-theme', 'light');
+      })();
+    </script>
   </head>
   <body>
-    <!-- Header & Navbar -->
-    <header class="bg-dark fixed-top">
-      <nav class="container-xxl navbar navbar-expand-lg py-3 bg-dark navbar-dark">
+    <!-- Loading screen -->
+    <div id="loader" class="loader-wrap" aria-hidden="true">
+      <div class="loader" role="presentation"></div>
+    </div>
+
+    <!-- Custom cursor (desktop) -->
+    <div id="cursor-dot" class="cursor-dot hidden" aria-hidden="true"></div>
+    <div id="cursor-ring" class="cursor-ring hidden" aria-hidden="true"></div>
+
+    <!-- Header & Nav -->
+    <header class="site-header" id="header">
+      <nav class="container-xxl navbar navbar-expand-lg py-3 navbar-dark">
         <div class="container-fluid">
-          <a class="navbar-brand fw-bold fs-3" href="#">Kareem Mustafa</a>
+          <a class="navbar-brand" href="#">Kareem Mustafa</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
               <li class="nav-item mx-2">
-                <a class="nav-link" href="#skills">SKILLS</a>
+                <a class="nav-link" href="#skills">Skills</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="#portfolio">PORTFOLIO</a>
+                <a class="nav-link" href="#portfolio">Portfolio</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="#about">ABOUT</a>
+                <a class="nav-link" href="#about">About</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="#cv">CURRICULUM VITAE</a>
+                <a class="nav-link" href="#cv">CV</a>
               </li>
-              
+              <li class="nav-item ms-2">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                  <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                  <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
     </header>
-    <!-- Hero or Showcase Section -->
-    <section class="hero d-flex flex-column align-items-center justify-content-center pt-5">
-      <div class="text-center">
-        <h1 class="h1 text-white fw-medium fst-italic">Kareem Mustafa</h1>
-        <h2 class="display-3 text-white fw-bold">Mobile Application developer <br />     </h2>
-        <a href="#skills" class="btn btn-lg fs-6 fw-medium mt-5 btn-primary p-3">TELL ME MORE</a>
+
+    <!-- Animated background layer -->
+    <div class="bg-mesh" aria-hidden="true"></div>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-content text-center">
+        <h1 class="h1 text-white fst-italic">Kareem Mustafa</h1>
+        <h2 class="hero-title">Mobile Application Developer</h2>
+        <a href="#skills" class="btn-cta mt-4">Tell me more</a>
       </div>
     </section>
-    
-    <!-- Skills Section -->
-    <section class="container py-5" id="skills">
-      <div class="row mt-4 py-3">
-        <div class="col-12 d-flex flex-column text-center justify-content-center">
-          <h2>SKILLS</h2>
-          <h5 class="text-secondary fw-normal py-2 fst-italic">Continuously improving my skills and knowledge in the field.</h5>
-        </div>
+
+    <!-- Skills -->
+    <section class="container-custom container py-5" id="skills">
+      <div class="section-header reveal">
+        <h2>Skills</h2>
+        <p class="section-subtitle">Continuously improving my skills and knowledge in the field.</p>
       </div>
-      <div class="row d-flex justify-content-between mx-0">
-        <div class="card mt-5 d-flex flex-column align-items-center text-center bg-white p-4" style="width: 25rem">
-          <img src="images/android.svg" alt="Front-end" class="card-icon">
-          <h3 class="mt-4 h4">Android Development</h3>
-          <p class="text-center">Proficient in Android development using Kotlin. Experienced in building responsive, user-friendly mobile applications and implementing modern development practices.</p>
+      <div class="reveal-stagger skills-grid">
+        <div class="skill-card" style="--skill-width: 92%;">
+          <img src="images/android.svg" alt="Android" class="card-icon" />
+          <h3>Android Development</h3>
+          <p>Proficient in Android development using Kotlin. Experienced in building responsive, user-friendly mobile applications and implementing modern development practices.</p>
+          <div class="skill-progress"><div class="skill-progress-fill"></div></div>
         </div>
-
-        <div class="card mt-5 d-flex flex-column align-items-center text-center bg-white p-4" style="width: 25rem">
-          <img src="images/flutter.svg" alt="Back-end" class="card-icon">
-          <h3 class="mt-4 h4">Flutter Development</h3>
-          <p class="text-center">Skilled in Flutter framework for cross-platform apps. Experienced in creating interactive, efficient, and visually appealing mobile applications.</p>
+        <div class="skill-card" style="--skill-width: 88%;">
+          <img src="images/flutter.svg" alt="Flutter" class="card-icon" />
+          <h3>Flutter Development</h3>
+          <p>Skilled in Flutter framework for cross-platform apps. Experienced in creating interactive, efficient, and visually appealing mobile applications.</p>
+          <div class="skill-progress"><div class="skill-progress-fill"></div></div>
         </div>
-
-        <div class="card mt-5 d-flex flex-column align-items-center text-center bg-white p-4" style="width: 25rem">
-          <img src="images/kotlin.svg" alt="Mobile App" class="card-icon">
-          <h3 class="mt-4 h4">KMP Development</h3>
-          <p class="text-center">Experienced in Kotlin multi-platform development. Skilled at building robust, scalable, and maintainable applications across different platforms.</p>
+        <div class="skill-card" style="--skill-width: 85%;">
+          <img src="images/kotlin.svg" alt="KMP" class="card-icon" />
+          <h3>KMP Development</h3>
+          <p>Experienced in Kotlin multi-platform development. Skilled at building robust, scalable, and maintainable applications across different platforms.</p>
+          <div class="skill-progress"><div class="skill-progress-fill"></div></div>
         </div>
-        <div class="card mt-5 d-flex flex-column align-items-center text-center bg-white p-4" style="width: 25rem">
-          <img src="images/laravel.svg" alt="Full Stack" class="card-icon">
-          <h3 class="mt-4 h4">Laravel Development</h3>
-          <p class="text-center">Experienced Full-Stack developer using Laravel and modern frontend tools. Skilled at building secure, scalable, and user-friendly web applications with clean architecture and efficient database handling.</p>
-        </div>
-      </div>
-
       </div>
     </section>
-    <!-- Portfolio Section -->
-        <section class="container py-5" id="portfolio">
-      <div class="row mt-4 py-3">
-        <div class="col-12 d-flex flex-column text-center justify-content-center">
-          <h2>Portfolio</h2>
-          <h5 class="text-secondary fw-normal py-2 fst-italic">
-            A collection of projects I've worked on.
-          </h5>
-        </div>
 
-        <div class="row mt-5 mx-0 justify-content-center align-items-center">
-          <!-- Card 1 -->
-          <div class="col-lg-6 px-3 col-md-6 col-12 card-wrapper">
-            <div class="card mt-4 position-relative overflow-hidden">
-              <img src="images/project1.png" class="img-fluid" alt="Stylish Application">
-              <div class="card-body text-center">
-                <h6 class="card-title">Stylish Application</h6>
-                <p class="card-text text-secondary">Flutter Framework</p>
-              </div>
-              <div class="hover-text position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white text-center px-3">
+    <!-- Portfolio -->
+    <section class="container-custom container py-5" id="portfolio">
+      <div class="section-header reveal">
+        <h2>Portfolio</h2>
+        <p class="section-subtitle">A collection of projects I've worked on.</p>
+      </div>
+      <div class="portfolio-grid reveal-stagger">
+        <div class="project-card-wrap">
+          <div class="project-card">
+            <div class="card-img-wrap">
+              <img src="images/project1.png" class="img-fluid" alt="Stylish Application" />
+              <div class="hover-overlay">
                 <p>Stylish is a modern app that showcases the latest fashion trends and clothing styles. It provides a simple browsing experience with high-quality images and detailed product information. Users can explore categories, compare items, and check prices, making shopping smooth and convenient.</p>
               </div>
             </div>
+            <div class="card-body">
+              <h6 class="card-title">Stylish Application</h6>
+              <p class="card-text">Flutter Framework</p>
+            </div>
           </div>
-
-
-
-
-          <!-- Card 2 -->
-          <div class="col-lg-6 px-3 col-md-6 col-12 card-wrapper">
-            <div class="card mt-4 position-relative overflow-hidden">
-              <img src="images/project3.png" class="img-fluid" alt="Health Life">
-              <div class="card-body text-center">
-                <h6 class="card-title">Health Life</h6>
-                <p class="card-text text-secondary">Android - Jetpack Compose</p>
-              </div>
-              <div class="hover-text position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white text-center px-3">
+        </div>
+        <div class="project-card-wrap">
+          <div class="project-card">
+            <div class="card-img-wrap">
+              <img src="images/project3.png" class="img-fluid" alt="Health Life" />
+              <div class="hover-overlay">
                 <p>Health Life is a complete health app that tracks your steps, calories, and daily activities. It offers medical tips, daily health tasks, and a personalized nutrition plan. The app also includes a smart health chatbot to provide guidance, helping you maintain a healthier lifestyle easily.</p>
               </div>
             </div>
+            <div class="card-body">
+              <h6 class="card-title">Health Life</h6>
+              <p class="card-text">Android – Jetpack Compose</p>
+            </div>
           </div>
-
-          <!-- Card 3 -->
-          <div class="col-lg-6 px-3 col-md-6 col-12 card-wrapper">
-            <div class="card mt-4 position-relative overflow-hidden">
-              <img src="images/project4.png" class="img-fluid" alt="Target Math">
-              <div class="card-body text-center">
-                <h6 class="card-title">Target Math</h6>
-                <p class="card-text text-secondary">Flutter Framework</p>
-              </div>
-              <div class="hover-text position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white text-center px-3">
+        </div>
+        <div class="project-card-wrap">
+          <div class="project-card">
+            <div class="card-img-wrap">
+              <img src="images/project4.png" class="img-fluid" alt="Target Math" />
+              <div class="hover-overlay">
                 <p>Target Math is an educational app linked to Moodle that helps students access materials, track assignments, and take quizzes easily. It includes interactive tools, forums, and messaging with teachers, making learning more organized and engaging.</p>
               </div>
             </div>
+            <div class="card-body">
+              <h6 class="card-title">Target Math</h6>
+              <p class="card-text">Flutter Framework</p>
+            </div>
           </div>
-
-          <!-- Card 4 -->
-          <div class="col-lg-6 px-3 col-md-6 col-12 card-wrapper">
-            <div class="card mt-4 position-relative overflow-hidden">
-              <img src="images/project5.png" class="img-fluid" alt="Code Icons E-commerce">
-              <div class="card-body text-center">
-                <h6 class="card-title">Code Icons E-commerce</h6>
-                <p class="card-text text-secondary">Flutter Framework</p>
-              </div>
-              <div class="hover-text position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white text-center px-3">
+        </div>
+        <div class="project-card-wrap">
+          <div class="project-card">
+            <div class="card-img-wrap">
+              <img src="images/project5.png" class="img-fluid" alt="Code Icons E-commerce" />
+              <div class="hover-overlay">
                 <p>Code Icons E-Commerce is software for managing physical stores, helping owners control products, inventories, sales, and purchases easily. It tracks stock, manages invoices, monitors customers and suppliers, and provides reports on sales and profits. The app also supports promotions, staff tasks, and overall store performance, making management more efficient.</p>
               </div>
             </div>
-          </div>
-          <!-- Cart-->
-          <div class="col-lg-6 px-3 col-md-6 col-12 card-wrapper">
-            <div class="card mt-4 position-relative overflow-hidden">
-              <img src="images/project7.png" class="img-fluid" alt="GoHub">
-              <div class="card-body text-center">
-                <h6 class="card-title">GoHub</h6>
-                <p class="card-text text-secondary">Android - Jetpack Compose</p>
-              </div>
-              <div class="hover-text position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white text-center px-3">
-                <p>GoHub is an app that showcases hotels, tourist attractions, and activities across different cities for travelers. It helps users easily explore top destinations and allows booking directly through the hotels’ official booking platforms, providing a more organized and convenient travel experience.</p>
-              </div>
+            <div class="card-body">
+              <h6 class="card-title">Code Icons E-commerce</h6>
+              <p class="card-text">Flutter Framework</p>
             </div>
           </div>
-
-          <!-- Card 5 -->
-          <div class="col-lg-6 px-3 col-md-6 col-12 card-wrapper">
-            <div class="card mt-4 position-relative overflow-hidden">
-              <img src="images/project2.png" class="img-fluid" alt="House booking">
-              <div class="card-body text-center">
-                <h6 class="card-title">House booking</h6>
-                <p class="card-text text-secondary">Android - XML</p>
+        </div>
+        <div class="project-card-wrap">
+          <div class="project-card">
+            <div class="card-img-wrap">
+              <img src="images/project7.png" class="img-fluid" alt="GoHub" />
+              <div class="hover-overlay">
+                <p>GoHub is an app that showcases hotels, tourist attractions, and activities across different cities for travelers. It helps users easily explore top destinations and allows booking directly through the hotels' official booking platforms, providing a more organized and convenient travel experience.</p>
               </div>
-              <div class="hover-text position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white text-center px-3">
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">GoHub</h6>
+              <p class="card-text">Android – Jetpack Compose</p>
+            </div>
+          </div>
+        </div>
+        <div class="project-card-wrap">
+          <div class="project-card">
+            <div class="card-img-wrap">
+              <img src="images/project2.png" class="img-fluid" alt="House booking" />
+              <div class="hover-overlay">
                 <p>House booking apps help users easily find suitable apartments and homes, offering clear photos, accurate prices, and filters that make the booking process faster and more convenient. These apps also provide complete property details to help users make better decisions.</p>
               </div>
             </div>
+            <div class="card-body">
+              <h6 class="card-title">House booking</h6>
+              <p class="card-text">Android – XML</p>
+            </div>
           </div>
-
-          <!-- Card 6 -->
-          <div class="col-lg-6 px-3 col-md-6 col-12 card-wrapper">
-            <div class="card mt-4 position-relative overflow-hidden">
-              <img src="images/project6.png" class="img-fluid" alt="DC Verification">
-              <div class="card-body text-center">
-                <h6 class="card-title">DC Verification</h6>
-                <p class="card-text text-secondary">Flutter Framework</p>
-              </div>
-              <div class="hover-text position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white text-center px-3">
+        </div>
+        <div class="project-card-wrap">
+          <div class="project-card">
+            <div class="card-img-wrap">
+              <img src="images/project6.png" class="img-fluid" alt="DC Verification" />
+              <div class="hover-overlay">
                 <p>DC Verification is a software that allows verifying client information at the Chamber of Commerce in Damietta efficiently. The app uses QR codes and other payment data to ensure accuracy and speed up administrative procedures.</p>
               </div>
             </div>
+            <div class="card-body">
+              <h6 class="card-title">DC Verification</h6>
+              <p class="card-text">Flutter Framework</p>
+            </div>
           </div>
-          <!-- Card 8 -->
-          <div class="col-lg-6 px-3 col-md-6 col-12 card-wrapper">
-            <div class="card mt-4 position-relative overflow-hidden">
-              <img src="images/project8.png" class="img-fluid" alt="Fain Application">
-              <div class="card-body text-center">
-                <h6 class="card-title">Fien Application</h6>
-                <p class="card-text text-secondary">Flutter Framework</p>
-              </div>
-              <div class="hover-text position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white text-center px-3">
+        </div>
+        <div class="project-card-wrap">
+          <div class="project-card">
+            <div class="card-img-wrap">
+              <img src="images/project8.png" class="img-fluid" alt="Fien Application" />
+              <div class="hover-overlay">
                 <p>Fain Application is designed to help people find lost items. Anyone who finds something can upload it to the app with details, and users who lost an item can browse reports to check if someone has found it. The app also enables direct communication between both parties to make recovering lost items easier and faster.</p>
               </div>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">Fien Application</h6>
+              <p class="card-text">Flutter Framework</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- About Section -->
-    <section class="container py-5" id="about">
-      <div class="row mt-4 py-3">
-        <div class="col-12 d-flex flex-column text-center">
-          <h2>ABOUT</h2>
-          <h5 class="text-secondary fw-normal py-2 fst-italic">Learn more about me, my background, and what motivates me.</h5>
-        </div>
-      </div>
-      <div class="row flex-row-reverse flex-md-row mt-5 pt-5">
-        <div class="col-9 col-md-5 text-md-end">
-          <h5>2020-2024</h5>
-          <h5>Computer Science Education</h5>
-          <p>During this period, I studied at the Faculty of Computers and Information, majoring in Software Engineering.I built a solid foundation in programming, system design, algorithms, and software architecture.I also joined several external training programs, including the well-known ITI Android track, which strengthened my practical skills in developing high-quality mobile applications</p>
-        </div>
-        <div class="col-3 col-md-2 img text-center">
-          <img class="rounded-circle border border-5 border-dark-subtle img-fluid" src="images/about1.webp" alt="img">
-        </div>
-      </div>
-      <div class="row justify-content-md-end mt-5 pt-5">
-        <div class="col-3 col-md-2 img text-center">
-          <img class="rounded-circle border border-5 border-dark-subtle img-fluid" src="images/about2.jpg" alt="img">
-        </div>
-        <div class="col-9 col-md-5">
-          <h5>2022-2025</h5>
-          <h5>Professional Work Experience</h5>
-          <p>During this period, I focused on developing high-quality mobile applications using both Android and Flutter. I worked on multiple projects across different companies, contributing to creating stable, user-friendly, and efficient apps. Collaborating with diverse teams and handling real-world challenges allowed me to gain valuable hands-on experience, refine my skills, and build solutions that make a tangible impact</p>
-        </div>
-      </div>
-      <div class="row flex-row-reverse flex-md-row mt-5 pt-5">
-        <div class="col-9 col-md-5 text-md-end">
-          <h5>2022-Present</h5>
-          <h5>Freelance Development</h5>
-          <p>Alongside my studies and professional work, I have been working as a freelance developer since 2020. This experience allowed me to build custom applications for different clients and industries while strengthening my communication and client-management skills. Working independently also gave me the freedom to innovate, explore new technologies, and gain broad technical experience.</p>
-        </div>
-        <div class="col-3 col-md-2 img text-center">
-          <img class="rounded-circle border border-5 border-dark-subtle img-fluid" src="images/about3.jpg" alt="img">
-        </div>
-      </div>
-      <div class="row justify-content-md-end mt-5 pt-5">
-        <div class="col-3 col-md-2 img text-center">
-          <img class="rounded-circle border border-5 border-dark-subtle img-fluid" src="images/about4.png" alt="img">
-        </div>
-        <div class="col-9 col-md-5">
-          <h5>Future</h5>
-          <h5>Vision and Ambition</h5>
-          <p>In the coming years, I aim to further deepen my expertise in mobile development across all platforms, including Android, iOS, and cross-platform technologies. I am also passionate about exploring Artificial Intelligence and finding ways to integrate it into mobile applications that deliver real value to users. My goal is to continue creating innovative, impactful, and modern digital solutions that make a positive difference.</p>
-        </div>
-      </div>
-      <div class="row justify-content-md-center mt-5 pt-5">
-        <div class="col-3 col-md-2 d-flex justify-content-center hire-text">
-          <h2 class="h4 d-flex justify-content-center align-items-center bg-primary text-white rounded-circle border border-5 border-dark-subtle"><span class="d-none d-md-block">Your<br>Next<br>Hire</span></h2>
-        </div>
-      </div>      
-    </section>
-    <!-- Curriculum Vitae Section -->
-    <section class="container py-5" id="cv">
-      <div class="row mt-4 py-3">
-        <div class="col-12 d-flex flex-column text-center">
-          <h2>CURRICULUM VITAE</h2>
-          <h5 class="text-secondary fw-normal py-2 fst-italic">A selected showcase of the professional and academic projects I have completed in mobile development and software engineering.</h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 mt-5 order-lg-0 order-1 text-center">
-          <img class="img-fluid rounded-circle border border-5 border-dark-subtle" src="images/profile.jpg" alt="profile-img">
-          <h2 class="mt-3">Kareem Mustafa</h2>
-          <ul class="list-unstyled contact-info">
-            <li><i class="fas fa-envelope me-2"></i><a href="mailto:kareemabunaga@gmail.com" target="_blank" class="text-decoration-none text-dark">kareemabunaga@gmail.com</a></li>
-            <li><i class="fas fa-phone me-2"></i><a href="tel:+966530572149"target="_blank" class="text-decoration-none text-dark">+966 530572149</a></li>
-            <li><i class="fas fa-phone me-2"></i><a href="https://wa.me/201024115925" target="_blank" class="text-decoration-none text-dark">+20 1024115925</a></li>
-            <li><i class="fas fa-map-marker-alt me-2"></i> Saudi Arabia , Riyadh</li>
-            <li><i class="fas fa-file-pdf me-2"></i>  <a href="files/cv.pdf" target="_blank" class="text-decoration-none text-dark">CV</a></li>
-          </ul>
-          <ul class="social-icons d-flex justify-content-center flex-wrap list-unstyled p-0 my-3">
-            <li class="mx-2">
-              <a href="https://x.com/abunaga14?t=ksFjSMzCmtQwWTD91YJ1HQ&s=09" target="_blank" class="bg-primary text-white d-flex align-items-center justify-content-center rounded-circle" style="width:40px; height:40px;">
-                <i class="fa-brands fa-twitter"></i>
-              </a>
-            </li>
-            <li class="mx-2">
-              <a href="https://www.facebook.com/share/1ZcHQPfmZd/" target="_blank" class="bg-primary text-white d-flex align-items-center justify-content-center rounded-circle" style="width:40px; height:40px;">
-                <i class="fa-brands fa-facebook-f"></i>
-              </a>
-            </li>
-            <li class="mx-2">
-              <a href="https://www.linkedin.com/in/karim-mustafa-451471216?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="bg-primary text-white d-flex align-items-center justify-content-center rounded-circle" style="width:40px; height:40px;">
-                <i class="fa-brands fa-linkedin-in"></i>
-              </a>
-            </li>
-          </ul>
 
-          <h5>Technical Skills</h5>
-          <ul class="list-unstyled">
-            <li>Kotlin</li>
-            <li>Flutter</li>
-            <li>Android Development</li>
-            <li>Jetpack Compose</li>
-            <li>Cross-Platform Development</li>
-            <li>Kotlin multi-platform</li>
-            <li>Firebase</li>
-            <li>Git</li>
-            <!-- Add or remove skills as needed -->
-          </ul>
-          <h5>Personal Interests</h5>
-          <ul class="list-unstyled">
-            <li>Mobile App Development</li>
-            <li>Exploring Artificial Intelligence</li>
-            <li>Learning New Programming Technologies</li>
-            <li>Data Analysis</li>
-            <!-- Add or remove interests as needed -->
-          </ul>
+    <!-- About -->
+    <section class="container-custom container py-5" id="about">
+      <div class="section-header reveal">
+        <h2>About</h2>
+        <p class="section-subtitle">Learn more about me, my background, and what motivates me.</p>
+      </div>
+      <div class="about-timeline reveal-stagger">
+        <div class="timeline-item">
+          <div class="timeline-dot">
+            <img src="images/about1.webp" alt="Education" />
+          </div>
+          <div class="timeline-content col-md-5">
+            <h5>2020–2024</h5>
+            <h5>Computer Science Education</h5>
+            <p>During this period, I studied at the Faculty of Computers and Information, majoring in Software Engineering. I built a solid foundation in programming, system design, algorithms, and software architecture. I also joined several external training programs, including the well-known ITI Android track, which strengthened my practical skills in developing high-quality mobile applications.</p>
+          </div>
         </div>
-        <div class="col-lg-7 order-lg-1 order-0 mt-5 text-start">
+        <div class="timeline-item">
+          <div class="timeline-dot">
+            <img src="images/about2.jpg" alt="Work" />
+          </div>
+          <div class="timeline-content col-md-5">
+            <h5>2022–2025</h5>
+            <h5>Professional Work Experience</h5>
+            <p>During this period, I focused on developing high-quality mobile applications using both Android and Flutter. I worked on multiple projects across different companies, contributing to creating stable, user-friendly, and efficient apps. Collaborating with diverse teams and handling real-world challenges allowed me to gain valuable hands-on experience, refine my skills, and build solutions that make a tangible impact.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">
+            <img src="images/about3.jpg" alt="Freelance" />
+          </div>
+          <div class="timeline-content col-md-5">
+            <h5>2022–Present</h5>
+            <h5>Freelance Development</h5>
+            <p>Alongside my studies and professional work, I have been working as a freelance developer since 2020. This experience allowed me to build custom applications for different clients and industries while strengthening my communication and client-management skills. Working independently also gave me the freedom to innovate, explore new technologies, and gain broad technical experience.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">
+            <img src="images/about4.png" alt="Future" />
+          </div>
+          <div class="timeline-content col-md-5">
+            <h5>Future</h5>
+            <h5>Vision and Ambition</h5>
+            <p>In the coming years, I aim to further deepen my expertise in mobile development across all platforms, including Android, iOS, and cross-platform technologies. I am also passionate about exploring Artificial Intelligence and finding ways to integrate it into mobile applications that deliver real value to users. My goal is to continue creating innovative, impactful, and modern digital solutions that make a positive difference.</p>
+          </div>
+        </div>
+        <div class="timeline-item justify-content-center">
+          <div class="hire-badge">Your<br>Next<br>Hire</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section class="container-custom container py-5 cv-section" id="cv">
+      <div class="section-header reveal">
+        <h2>Curriculum Vitae</h2>
+        <p class="section-subtitle">A selected showcase of the professional and academic projects I have completed in mobile development and software engineering.</p>
+      </div>
+      <div class="row reveal-stagger">
+        <div class="col-lg-4 mt-5 order-lg-0 order-1 text-center">
+          <div class="card-profile">
+            <img class="img-fluid" src="images/profile.jpg" alt="Kareem Mustafa" />
+            <h2 class="mt-3">Kareem Mustafa</h2>
+            <ul class="list-unstyled contact-info">
+              <li><i class="fas fa-envelope me-2"></i><a href="mailto:kareemabunaga@gmail.com" target="_blank" rel="noopener">kareemabunaga@gmail.com</a></li>
+              <li><i class="fas fa-phone me-2"></i><a href="tel:+966530572149" target="_blank" rel="noopener">+966 530572149</a></li>
+              <li><i class="fas fa-phone me-2"></i><a href="https://wa.me/201024115925" target="_blank" rel="noopener">+20 1024115925</a></li>
+              <li><i class="fas fa-map-marker-alt me-2"></i> Saudi Arabia, Riyadh</li>
+              <li><i class="fas fa-file-pdf me-2"></i><a href="files/cv.pdf" target="_blank" rel="noopener">CV</a></li>
+            </ul>
+            <ul class="social-icons d-flex justify-content-center flex-wrap list-unstyled p-0 my-3 gap-2">
+              <li><a href="https://x.com/abunaga14?t=ksFjSMzCmtQwWTD91YJ1HQ&s=09" target="_blank" rel="noopener" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a></li>
+              <li><a href="https://www.facebook.com/share/1ZcHQPfmZd/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/karim-mustafa-451471216?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+            </ul>
+            <h5>Technical Skills</h5>
+            <ul class="list-unstyled">
+              <li>Kotlin</li>
+              <li>Flutter</li>
+              <li>Android Development</li>
+              <li>Jetpack Compose</li>
+              <li>Cross-Platform Development</li>
+              <li>Kotlin multi-platform</li>
+              <li>Firebase</li>
+              <li>Git</li>
+            </ul>
+            <h5>Personal Interests</h5>
+            <ul class="list-unstyled">
+              <li>Mobile App Development</li>
+              <li>Exploring Artificial Intelligence</li>
+              <li>Learning New Programming Technologies</li>
+              <li>Data Analysis</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-7 order-lg-1 order-0 mt-5 text-start cv-content">
           <h3>Profile</h3>
-          <hr>
+          <hr />
           <p>A motivated mobile developer with a strong background in software engineering, experienced in Android, Flutter, and cross-platform development. Passionate about building modern applications, improving user experiences, and continuously expanding technical skills. Dedicated to delivering high-quality solutions across academic, professional, and freelance projects.</p>
-          <br>
+          <br />
           <h3>Highlights of Qualifications</h3>
-          <hr>
+          <hr />
           <ul>
             <li>Strong background in mobile development with hands-on experience in Android and Flutter.</li>
             <li>Solid understanding of software engineering principles and modern development practices.</li>
             <li>Proven ability to build scalable, user-friendly, and high-quality applications.</li>
             <li>Academically trained with a strong foundation in programming concepts and software development.</li>
-            <!-- Add or remove qualifications as needed -->
           </ul>
           <h3>Education</h3>
-          <hr>
+          <hr />
           <dl>
-            <dt>2020 - 2024</dt>
+            <dt>2020 – 2024</dt>
             <dd>Egypt – Mansoura University</dd>
             <dd>Faculty of Computers and Information</dd>
-            <dd>Bachelor’s Degree in Software Engineering</dd>
+            <dd>Bachelor's Degree in Software Engineering</dd>
           </dl>
-          
           <h3>Work Experience</h3>
-          <hr>
+          <hr />
           <dl>
             <dt>2021</dt>
-            <dd>ِAndroid Developer</dd>
+            <dd>Android Developer</dd>
             <dd>ITI</dd>
-            <dt>2022 - 2023</dt>
-            <dd>ِAndroid Developer</dd>
+            <dt>2022 – 2023</dt>
+            <dd>Android Developer</dd>
             <dd>GATE its Company</dd>
-            <dt>2023 - 2025</dt>
+            <dt>2023 – 2025</dt>
             <dd>Flutter Developer</dd>
             <dd>Code Icons Company</dd>
-            <!-- Add or remove work experience entries as needed -->
           </dl>
           <h3>Extracurricular Activities</h3>
-          <hr>
+          <hr />
           <dl>
             <dt>Faculty Tech Community – Software Engineering Club</dt>
             <dd>Volunteer – Event Organizer</dd>
             <dd>Helped organize technical sessions and programming meetups, supporting new students and contributing to building a collaborative learning environment.</dd>
           </dl>
         </div>
-      </div>      
+      </div>
     </section>
 
-     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4">
-      <p class="mb-0 fst-italic">Thank you for visiting my portfolio. Let's create something amazing together!</p>
+    <footer class="site-footer">
+      <p>Thank you for visiting my portfolio. Let's create something amazing together!</p>
     </footer>
 
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-        document.querySelectorAll('.card-wrapper').forEach(card => {
-          card.addEventListener('click', () => {
-            const hoverText = card.querySelector('.hover-text');
-            hoverText.style.opacity = hoverText.style.opacity === '1' ? '0' : '1';
-          });
-        });
-     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
   </body>
 </html>
